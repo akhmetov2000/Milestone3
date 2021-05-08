@@ -9346,19 +9346,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YERLAN-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\duman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionBonusTask\\AdditionBonusTask.csproj",
+      "projectUniqueName": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionBonusTask\\AdditionBonusTask.csproj",
       "projectName": "AdditionBonusTask",
-      "projectPath": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionBonusTask\\AdditionBonusTask.csproj",
-      "packagesPath": "C:\\Users\\YERLAN-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionBonusTask\\obj\\",
+      "projectPath": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionBonusTask\\AdditionBonusTask.csproj",
+      "packagesPath": "C:\\Users\\duman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionBonusTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\YERLAN-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\duman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9433,6 +9433,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.13, 3.1.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -9441,7 +9447,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }

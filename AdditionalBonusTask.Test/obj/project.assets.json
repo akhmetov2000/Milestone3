@@ -10093,19 +10093,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YERLAN-PC\\.nuget\\packages\\": {}
+    "C:\\Users\\duman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionalBonusTask.Test\\AdditionalBonusTask.Test.csproj",
+      "projectUniqueName": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionalBonusTask.Test\\AdditionalBonusTask.Test.csproj",
       "projectName": "AdditionalBonusTask.Test",
-      "projectPath": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionalBonusTask.Test\\AdditionalBonusTask.Test.csproj",
-      "packagesPath": "C:\\Users\\YERLAN-PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionalBonusTask.Test\\obj\\",
+      "projectPath": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionalBonusTask.Test\\AdditionalBonusTask.Test.csproj",
+      "packagesPath": "C:\\Users\\duman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionalBonusTask.Test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\YERLAN-PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\duman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10119,8 +10119,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionBonusTask\\AdditionBonusTask.csproj": {
-              "projectPath": "C:\\Users\\YERLAN-PC\\source\\repos\\AdditionBonusTask\\AdditionBonusTask.csproj"
+            "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionBonusTask\\AdditionBonusTask.csproj": {
+              "projectPath": "C:\\Users\\duman\\Desktop\\MICROSOFT NET\\Addtion\\AdditionBonusTask\\AdditionBonusTask.csproj"
             }
           }
         }
@@ -10174,7 +10174,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
       }
     }
   }
