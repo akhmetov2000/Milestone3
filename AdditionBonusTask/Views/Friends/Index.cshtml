@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AdditionBonusTask.Models.Friend>
+@using Microsoft.AspNetCore.Identity
+@using AdditionBonusTask.Areas.Identity.Data
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-light" style="border-radius:10px;">
+    <div class="admin__header">
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Posts" asp-action="Index" title="Manage Posts">Posts</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Comments" asp-action="Index" title="Manage Comments">Comments</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="People" asp-action="Index" title="Manage Persons">Persons</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Friends" asp-action="Index" title="Manage Friends">Friends</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Dialogs" asp-action="Index" title="Manage Dialogs">Dialogs</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Messages" asp-action="Index" title="Manage Messages">Messages</a>
+    </div>
+    <div class="p-3">
+        <h1>Friends</h1>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.FriendSenderId)</a>
+                        @*@Html.DisplayNameFor(model => model.FriendSenderId)*@
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceiverId)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @UserManager.FindByIdAsync(item.FriendSenderId).Result.FirstName @UserManager.FindByIdAsync(item.FriendSenderId).Result.LastName
+                            @*@HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(ID).UserName*@
+                        </td>
+                        <td>
+                            @UserManager.FindByIdAsync(item.ReceiverId).Result.FirstName @UserManager.FindByIdAsync(item.ReceiverId).Result.LastName
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

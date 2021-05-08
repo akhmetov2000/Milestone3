@@ -1,0 +1,111 @@
+﻿@model PaginatedList<AdditionBonusTask.Models.Post>
+@*@model IEnumerable<AdditionBonusTask.Models.Post>*@
+@using Microsoft.AspNetCore.Identity
+@using AdditionBonusTask.Data;
+@using AdditionBonusTask.Areas.Identity.Data;
+@inject UserManager<ApplicationUser> UserManager
+
+
+@{ 
+    AuthDbContext dbContext = new AuthDbContext();
+    var authDbContext = dbContext.Posts;
+}
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-light" style="border-radius:10px; width:100%">
+    <div class="admin__header">
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Posts" asp-action="Index" title="Manage Posts">Posts</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Comments" asp-action="Index" title="Manage Comments">Comments</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="People" asp-action="Index" title="Manage Persons">Persons</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Friends" asp-action="Index" title="Manage Friends">Friends</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Dialogs" asp-action="Index" title="Manage Dialogs">Dialogs</a>
+        <a id="manage" class="btn text-light" asp-area="" asp-controller="Messages" asp-action="Index" title="Manage Messages">Messages</a>
+    </div>
+    <div class="p-3">
+        <h1 style="text-align:center">Posts</h1>
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color">
+                <p>
+                    Find by post text: <input type="text" class="form-control" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                    <input type="submit" value="Search" class="btn btn-primary" /> |
+                    <a asp-action="Index">Back to Full List</a>
+                </p>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["PostNameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Post text</a>
+                    </th>
+                    <th>
+                        Post Image
+                        @*@Html.DisplayNameFor(model => model.PostImage)*@
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Public Date</a>
+                    </th>
+                    <th>
+                        User
+                        @*@Html.DisplayNameFor(model => model.User)*@
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostText)
+                        </td>
+                        <td>
+                            <span style="word-break:break-all">@Html.DisplayFor(modelItem => item.PostImage)</span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PublicDate)
+                        </td>
+                        <td>
+                            @item.UserId
+                            @*@UserManager.FindByIdAsync(item.User.Id).Result.LastName*@
+                            @*@Html.DisplayFor(modelItem => item.User.FirstName) @Html.DisplayFor(modelItem => item.User.LastName)*@
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+    </div>
+
+</div>

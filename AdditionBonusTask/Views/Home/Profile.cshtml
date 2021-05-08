@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewData["Title"] = "Messages";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using AdditionBonusTask.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<div class="profile">
+    <div class="card profile">
+        <div class="row mt-2">
+            <div class="col-3">
+                <img src="https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg" alt="" class="profile__image" style=" padding-left: 5%;
+width: 150px; border-radius:5px; object-fit: contain;" />
+            </div>
+            <div class="col-8">
+                <h3 class="profile__fullname">@UserManager.GetUserAsync(User).Result.FirstName @UserManager.GetUserAsync(User).Result.LastName</h3>
+                <h5>Email: @UserManager.GetUserAsync(User).Result.Email </h5>
+
+                <div style="display:flex; align-items:center;" class="row">
+                    <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="text-decoration:none; font-size:19px;">
+                        <i class="fas fa-edit" style="font-size:20px"></i>
+                        Edit profile
+                    </a>
+
+                    @*<a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="text-decoration:none; font-size:19px;">
+                            Edit profile
+                        </a>*@
+                </div>
+
+            </div>
+        </div>
+        <hr />
+
+        <hr />
+
+
+    </div>
+
+    <div class="messageSender mt-3">
+        <div class="messageSender__top">
+            <img src="https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg" class="post__avatar" />
+            <form>
+                <input class="messageSender__input"
+                       placeholder="Whats up?" />
+                <input placeholder="Image URL Optional" />
+                <button type="submit">
+                    Hidden submit
+                </button>
+            </form>
+        </div>
+        <div class="messageSender__bottom">
+
+            <div class="messageSender__option">
+                <i class="fas fa-photo-video" style="font-size:30px; color:green"></i>
+                <h3>Photo/Gif</h3>
+            </div>
+
+            <div class="messageSender__option">
+                <i class="far fa-smile" style="font-size:30px; color:orange"></i>
+                <h3>Feeling/Activity</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="post">
+        <div class="post__top">
+            <img src="https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg" class="post__avatar" />
+
+            <div class="post__topInfo">
+                <h3>Username</h3>
+                @*<p>{new Date(timestamp?.toDate()).toUTCString()}</p>*@
+                <p>Date</p>
+            </div>
+        </div>
+
+        <div class="post__bottom">
+            <p>Its message</p>
+        </div>
+
+        <div class="post__image">
+            <img src="https://static10.tgstat.ru/channels/_0/66/66de8dadec5fa9d4dbcc0a4beb1cfcf5.jpg" alt="" />
+        </div>
+
+        <div class="post__options">
+            <div class="post__option">
+                <i class="fas fa-thumbs-up" style="font-size:35px"></i>
+                <p>Like</p>
+            </div>
+
+            <div class="post__option">
+                <i class="far fa-comment-dots" style="font-size:35px"></i>
+                <p>Comment</p>
+            </div>
+
+        </div>
+    </div>
+</div>

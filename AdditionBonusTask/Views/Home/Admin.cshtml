@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Admin";
+}
+
+<div class="admin">
+    <div class="admin__header">
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="Posts" asp-action="Index" title="Manage Posts">Posts</a>
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="Comments" asp-action="Index" title="Manage Comments">Comments</a>        
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="People" asp-action="Index" title="Manage Persons">Persons</a>
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="Friends" asp-action="Index" title="Manage Friends">Friends</a>
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="Dialogs" asp-action="Index" title="Manage Dialogs">Dialogs</a>
+            <a id="manage" class="btn text-light" asp-area="" asp-controller="Messages" asp-action="Index" title="Manage Messages">Messages</a>
+    </div>
+    <div class="admin__body">
+        <h1>Admin Page</h1>
+    </div>
+</div>

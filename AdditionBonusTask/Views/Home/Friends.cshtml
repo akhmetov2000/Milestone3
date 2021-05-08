@@ -1,0 +1,136 @@
+﻿@model IEnumerable<AdditionBonusTask.Models.Friend>
+@using Microsoft.AspNetCore.Identity
+@using AdditionBonusTask.Areas.Identity.Data
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Friends";
+}
+
+
+<link rel="stylesheet" href="~/css/style.css" />
+
+<div class="friends__page">
+    <div class="ffrien">
+        <div class="friends__request">
+            <div class="friends__request__title">
+                <h2 style="text-align:center">Friends Request (1)</h2>
+            </div>
+            <div class="friends__request__list">
+                <div class="friends__list__one">
+                    <div class="friends__image">
+                        <img src="https://cdn.vox-cdn.com/thumbor/kLmLWhVH_8L0RCQADim9uytXoVo=/0x0:2480x1994/1200x800/filters:focal(1302x235:1698x631)/cdn.vox-cdn.com/uploads/chorus_image/image/53748663/usa_today_9266437.0.jpg" />
+                    </div>
+                    <div class="friends__list__info">
+                        <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends">
+                            <h5 class="info__text__recommend">
+                                User Userov
+                            </h5>
+                        </a>
+
+                        <div>
+                            <button class="btn accept__link"><i class="fas fa-plus-circle"></i>Accept friend request</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="friends mt-3">
+            <div class="card">
+                <div class="card-header" style="text-align:center">
+                    <h1>Friends</h1>
+                </div>
+            </div>
+            <form asp-controller="Home" asp-action="Friends" method="get">
+                <div class="friends__input">
+                    <i class="fas fa-search" style="font-size:25px"></i>
+                    <input type="text" placeholder="Search friends" name="searchString"/>
+                </div>
+            </form>
+            <hr />
+
+            <div class="friends__list">
+                @foreach (var user in Model)
+                {
+                    <div class="friends__list__one">
+                        <div class="friends__image">
+                            <img src="https://www.virtualproleague.com/portal/assets/images/profile/tronco_jogador_1912_1551981797.png" />
+                        </div>
+                        <div class="friends__list__info">
+                            <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends">
+
+                                <h5 class="info__text">
+                                    @UserManager.FindByIdAsync(user.ReceiverId).Result.FirstName @UserManager.FindByIdAsync(user.ReceiverId).Result.LastName
+                                </h5>
+                            </a>
+                            <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends"><i class="fas fa-envelope"></i> Send Messages</a>
+                        </div>
+                    </div>
+                }
+
+
+                @*<div class="friends__list__one">
+                    <div class="friends__image">
+                        <img src="https://cdn.vox-cdn.com/thumbor/kLmLWhVH_8L0RCQADim9uytXoVo=/0x0:2480x1994/1200x800/filters:focal(1302x235:1698x631)/cdn.vox-cdn.com/uploads/chorus_image/image/53748663/usa_today_9266437.0.jpg" />
+                    </div>
+                    <div class="friends__list__info">
+                        <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none">
+                            <h5 class="info__text">
+                                User Userov
+                            </h5>
+                        </a>
+                        <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none"><i class="fas fa-envelope"></i> Send Messages</a>
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="list__recommend">
+        <div class="card">
+            <div class="card-header"><h3>Recommended friends</h3></div>
+        </div>
+        <div class="rec__fr">
+            <div class="recommended__list__fr">
+                <img src="https://sportpng.com/wp-content/uploads/2020/01/Cristiano-Ronaldo-sportpng-22.jpg" />
+                <div class="friends__list__info">
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none">
+                        <h5 style="color:black; font-size:15px">
+                            User Userov
+                        </h5>
+                    </a>
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none"><i class="fas fa-user-plus" style="font-size:20px"></i> Add friend</a>
+                </div>
+            </div>
+
+            <div class="recommended__list__fr">
+                <img src="https://sportpng.com/wp-content/uploads/2020/01/Cristiano-Ronaldo-sportpng-22.jpg" />
+                <div class="friends__list__info">
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none">
+                        <h5 style="color:black; font-size:15px">
+                            User Userov
+                        </h5>
+                    </a>
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none"><i class="fas fa-user-plus" style="font-size:20px"></i> Add friend</a>
+                </div>
+            </div>
+
+            <div class="recommended__list__fr">
+                <img src="https://sportpng.com/wp-content/uploads/2020/01/Cristiano-Ronaldo-sportpng-22.jpg" />
+                <div class="friends__list__info">
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none">
+                        <h5 style="color:black; font-size:15px">
+                            User Userov
+                        </h5>
+                    </a>
+                    <a id="manage" class="nav-link" asp-area="" asp-controller="Home" asp-action="Friends" style="text-decoration:none"><i class="fas fa-user-plus" style="font-size:20px"></i> Add friend</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-primary" style="width:100%">More...</button>
+        </div>
+    </div>
+</div>
